@@ -1,0 +1,24 @@
+Feature: Infinity Growth Challenge Escenarios
+
+      Escenario: Login
+      Dado el usario esta en la pagina de inicio de sesión
+      Cuando intenta logearse con "usuario" y "contraseña" de "manera"
+      Entonces la pantalla debe de ser mostrada "resultado"
+
+      | usuario                 | contraseña          | manera       | resultado                                                                 |
+      | standard_user           | secret_sauce        | correcta     | pagina home                                                               |
+      | locked_out_user         | secret_sauce        | correcta     | Epic sadface: Sorry, this user has been locked out.                       |
+      | problem_user            | secret_sauce        | correcta     | pagina home                                                               |
+      | performance_glitch_user | secret_sauce        | correcta     | pagina home                                                               |
+      | usuario_incorrecti      | secret_sauce        | incorrecta   | Epic sadface: Username and password do not match any user in this service |
+      | standard_user           | password_incorrecto | incorrecta   | Epic sadface: Username and password do not match any user in this service |
+
+      Escenario: Carrito
+      Dado el usario esta en la pagina de home
+      Cuando intenta "realizar" un "producto" al carrito
+      Y la pantalla debe de mostrar el carrito con "resultado"
+      Entonces al ir a la pagina del carrito visualizara los "resultados de productos"
+
+      | realizar | producto                | resultado                         | resultados de productos |
+      | agregar  | Sauce Labs Backpack     | carrito con cantidad de articulos | producto agregado       |
+      | quitar   | Sauce Labs Bolt T-Shirt | carrito con cantidad de articulos | producto removido       |
